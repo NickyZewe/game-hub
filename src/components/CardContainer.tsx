@@ -7,7 +7,7 @@ interface ContainerProps {
 
 const CardContainer = ({ children }: ContainerProps) => {
   return (
-    <Box borderRadius={10} overflow="hidden" width="300px" margin={10}>
+    <Box borderRadius={10} overflow="hidden">
       {children}
     </Box>
   );
