@@ -1,4 +1,8 @@
+import {  useQuery } from "react-query";
 import genres from "../data/genres";
+import APIClient from "../services/api-client";
+
+const apiClient = new APIClient<Genre>('/genres');
 
 export interface Genre {
     id: number;
@@ -7,6 +11,13 @@ export interface Genre {
 }
 
 
-const useGenres = () => ({ data: genres, isLoading: false, error: null})
+// const useGenres = () => ({ data: genres, isLoading: false, error: null})
+
+const useGenres = () => useQuery ({
+    queryKey: ["genres"],
+    queryFn: apiClient.getAll,
+    staleTime: 60 * 60 * 24 * 1000,
+    initialData: { count: genres.length, results: genres },
+})
 
 export default useGenres;
