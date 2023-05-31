@@ -3,6 +3,7 @@ import { Game } from "../hooks/useGames";
 import CriticScore from "./CriticScore";
 import PlatformIconList from "./PlatformIconList";
 import getCroppedImageUrl from "../services/imageUrl";
+import { Link } from "react-router-dom";
 
 interface GameProps {
   game: Game;
@@ -20,8 +21,7 @@ const GameCard = ({ game }: GameProps) => {
           <CriticScore score={game.metacritic} />
         </HStack>
         <Heading fontSize="2xl">
-          {game.name}
-          {/* <Emoji rating={game.rating_top} /> */}
+          <Link to={`/games/${game.slug}`}>{game.name}</Link>
         </Heading>
       </CardBody>
     </Card>
@@ -29,3 +29,7 @@ const GameCard = ({ game }: GameProps) => {
 };
 
 export default GameCard;
+
+{
+  /* <Emoji rating={game.rating_top} /> */
+}

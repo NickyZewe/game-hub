@@ -7,12 +7,14 @@ const apiClient = new APIClient<Game>('/games');
 
 
 export interface Game {
+    slug: string;
     id: number;
     name: string;
     background_image: string;
     parent_platforms: {platform: Platform}[];
     metacritic: number;
     rating_top: number
+    description_raw: string;
   }
   
   const useGames = () => {
