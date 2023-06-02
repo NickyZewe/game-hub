@@ -1,7 +1,6 @@
 import { useQuery } from "react-query";
+import Platform from "../entities/Platform";
 import APIClient from "../services/api-client";
-import { FetchResponse } from "../services/api-client";
-import { Platform } from "../entities/Platform";
 
 const apiClient = new APIClient<Platform>('/platforms/lists/parents');
 
